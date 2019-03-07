@@ -1,0 +1,36 @@
+
+apply plugin: 'com.android.library';
+
+
+android {
+	compileSdkVersion rootProject.properties.get('compileSdkVersion', 26);
+	buildToolsVersion rootProject.properties.get('buildToolsVersion', '27.0.3');
+
+	defaultConfig {
+		minSdkVersion 16
+		targetSdkVersion rootProject.properties.get('targetSdkVersion', 26)
+		versionCode 39
+		versionName '0.0.1'
+
+		// TODO: Adjust this once react-native 0.59 is released, so consumers can
+		// include 64 bit support that will be required by google play store starting
+		// August 1, 2019
+		// https://android-developers.googleblog.com/2019/01/get-your-apps-ready-for-64-bit.html
+		ndk {
+			abiFilters 'armeabi-v7a', 'x86'
+		}
+	}
+}
+
+
+dependencies {
+	implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+	//noinspection GradleDynamicVersion
+	compileOnly 'com.facebook.react:react-native:+';
+
+	api 'com.microsoft.appcenter:appcenter-distribute:1.11.3';
+	api 'com.microsoft.appcenter.reactnative:appcenter-react-native:1.12.2';
+
+	testImplementation project(':AppCenterReactNativeShared');
+}

@@ -1,0 +1,43 @@
+{
+	"name": "react-native-appcenter-distribute",
+	"version": "0.0.1",
+	"description": "React Native bridge code for the AppCenter Distribute SDK",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"author": "Ryan Thomas",
+	"bugs": {
+		"url": "https://github.com/RhinobyteSoftware/react-native-appcenter-distribute/issues"
+	},
+	"homepage": "https://github.com/RhinobyteSoftware/react-native-appcenter-distribute",
+	"keywords": [
+		"react-native",
+		"appcenter",
+		"distribute",
+		"updates"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RhinobyteSoftware/react-native-appcenter-distribute.git"
+	},
+
+	"scripts": {
+		"lint": "./node_modules/.bin/eslint ."
+	},
+
+	"dependencies": {
+		"appcenter": "1.12.2"
+	},
+	"devDependencies": {
+		"typescript": "3.3.3333"
+	},
+
+	"rnpm": {
+		"android": {
+			"packageInstance": "new ReactNativeAppCenterDistributePackage(MainApplication.this))"
+		},
+		"commands": {
+			"postlink": "node node_modules/react-native-appcenter-distribute/scripts/postlink"
+		}
+	}
+}

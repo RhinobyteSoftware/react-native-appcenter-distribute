@@ -1,0 +1,53 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"alwaysStrict": true,
+		"baseUrl": "src",
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react-native",
+		"module": "es2015",
+		"moduleResolution": "classic",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"outDir": "lib",
+		"paths": {},
+		"preserveConstEnums": true,
+		"pretty": false,
+		"rootDir": "src",
+		"sourceMap": true,
+		"strictNullChecks": true,
+		"target": "es2015",
+		"typeRoots": [
+			"./node_modules"
+		],
+		"types": [
+			"@types/fingerprintjs2",
+			"@types/googlemaps",
+			"@types/html2canvas",
+			"@types/jest",
+			"@types/memoize-one",
+			"@types/prop-types",
+			"@types/react",
+			"@types/react-native",
+			"@types/react-native-text-input-mask",
+			"@types/react-test-renderer",
+			"csstype",
+			"date-fns"
+		]
+	},
+	"include": [
+		"typings/augmentations/global-augmentation.d.ts",
+		"src/**/*.ts",
+		"src/**/*.tsx"
+	],
+	"exclude": [
+		"node_modules/**",
+	],
+	"compileOnSave": false
+}
