@@ -122,3 +122,6 @@ captures/
 
 # npm5
 package-lock.json
+
+android/.settings/
+android/.project

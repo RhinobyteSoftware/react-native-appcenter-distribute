@@ -1,6 +1,7 @@
 
 apply plugin: 'com.android.library';
 
+def appCenterSdkVersion = rootProject.properties.get('appCenterSdkVersion', '1.11.3');
 
 android {
 	compileSdkVersion rootProject.properties.get('compileSdkVersion', 26);
@@ -29,7 +30,7 @@ dependencies {
 	//noinspection GradleDynamicVersion
 	compileOnly 'com.facebook.react:react-native:+';
 
-	api 'com.microsoft.appcenter:appcenter-distribute:1.11.3';
+	api "com.microsoft.appcenter:appcenter-distribute:$appCenterSdkVersion";
 	api 'com.microsoft.appcenter.reactnative:appcenter-react-native:1.12.2';
 
 	testImplementation project(':AppCenterReactNativeShared');
