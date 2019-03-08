@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author            = { 'Ryan Thomas' => 'Ryan.Thomas@rhinobyte.com' }
 
   s.source            = { :git => "https://github.com/RhinobyteSoftware/react-native-appcenter-distribute.git" }
-  s.source_files      = "ReactNativeAppCenterDistribute/**/*.{h,m}"
+  s.source_files      = "RNAppCenterDistribute/**/*.{h,m}"
   s.platform          = :ios, '9.0'
   s.requires_arc      = true
 

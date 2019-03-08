@@ -461,7 +461,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 	 * Used to manually trigger the update check and/or show the update dialog.
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public static synchronized void checkForUpdates() {
+	public static synchronized void checkForUpdate() {
 		getInstance().checkInstanceForUpdatesManually();
 	}
 
@@ -616,7 +616,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 	}
 
 	/**
-	 * Implements {@link #checkForUpdates()}.
+	 * Implements {@link #checkForUpdate()}.
 	 *
 	 * DO NOT CALL THIS INTERNALLY
 	 *
@@ -775,7 +775,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 			}
 
 			if(mTriggerMode == TriggerMode.Manual && !mHasUpdateCheckBeenRequestedManually) {
-				AppCenterLog.info(LOG_TAG, "Waiting to perform update check until the checkForUpdates() call has been manually initiated.");
+				AppCenterLog.info(LOG_TAG, "Waiting to perform update check until the checkForUpdate() call has been manually initiated.");
 				return;
 			}
 

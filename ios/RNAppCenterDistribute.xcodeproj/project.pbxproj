@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A9EA0FE22317854001FCD9B /* ReactNativeAppCenterDistribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EA0FC22317854001FCD9B /* ReactNativeAppCenterDistribute.m */; };
-		0AEEA1E42231793E009750FE /* ReactNativeAppCenterDistribute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A9EA0FD22317854001FCD9B /* ReactNativeAppCenterDistribute.h */; };
+		0A9EA0FE22317854001FCD9B /* RNAppCenterDistribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9EA0FC22317854001FCD9B /* RNAppCenterDistribute.m */; };
+		0AEEA1E42231793E009750FE /* RNAppCenterDistribute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A9EA0FD22317854001FCD9B /* RNAppCenterDistribute.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,16 +18,16 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				0AEEA1E42231793E009750FE /* ReactNativeAppCenterDistribute.h in CopyFiles */,
+				0AEEA1E42231793E009750FE /* RNAppCenterDistribute.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A9EA0FC22317854001FCD9B /* ReactNativeAppCenterDistribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeAppCenterDistribute.m; sourceTree = "<group>"; };
-		0A9EA0FD22317854001FCD9B /* ReactNativeAppCenterDistribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNativeAppCenterDistribute.h; sourceTree = "<group>"; };
-		5419C2701D824AA700DDF3A1 /* libReactNativeAppCenterDistribute.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeAppCenterDistribute.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A9EA0FC22317854001FCD9B /* RNAppCenterDistribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppCenterDistribute.m; sourceTree = "<group>"; };
+		0A9EA0FD22317854001FCD9B /* RNAppCenterDistribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppCenterDistribute.h; sourceTree = "<group>"; };
+		5419C2701D824AA700DDF3A1 /* libRNAppCenterDistribute.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAppCenterDistribute.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 		5419C2671D824AA700DDF3A1 = {
 			isa = PBXGroup;
 			children = (
-				5419C2721D824AA700DDF3A1 /* ReactNativeAppCenterDistribute */,
+				5419C2721D824AA700DDF3A1 /* RNAppCenterDistribute */,
 				5419C2711D824AA700DDF3A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,26 +52,26 @@
 		5419C2711D824AA700DDF3A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5419C2701D824AA700DDF3A1 /* libReactNativeAppCenterDistribute.a */,
+				5419C2701D824AA700DDF3A1 /* libRNAppCenterDistribute.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5419C2721D824AA700DDF3A1 /* ReactNativeAppCenterDistribute */ = {
+		5419C2721D824AA700DDF3A1 /* RNAppCenterDistribute */ = {
 			isa = PBXGroup;
 			children = (
-				0A9EA0FD22317854001FCD9B /* ReactNativeAppCenterDistribute.h */,
-				0A9EA0FC22317854001FCD9B /* ReactNativeAppCenterDistribute.m */,
+				0A9EA0FD22317854001FCD9B /* RNAppCenterDistribute.h */,
+				0A9EA0FC22317854001FCD9B /* RNAppCenterDistribute.m */,
 			);
-			path = ReactNativeAppCenterDistribute;
+			path = RNAppCenterDistribute;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5419C26F1D824AA700DDF3A1 /* ReactNativeAppCenterDistribute */ = {
+		5419C26F1D824AA700DDF3A1 /* RNAppCenterDistribute */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5419C2791D824AA700DDF3A1 /* Build configuration list for PBXNativeTarget "ReactNativeAppCenterDistribute" */;
+			buildConfigurationList = 5419C2791D824AA700DDF3A1 /* Build configuration list for PBXNativeTarget "RNAppCenterDistribute" */;
 			buildPhases = (
 				5419C26C1D824AA700DDF3A1 /* Sources */,
 				5419C26D1D824AA700DDF3A1 /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = ReactNativeAppCenterDistribute;
-			productName = ReactNativeAppCenterDistribute;
-			productReference = 5419C2701D824AA700DDF3A1 /* libReactNativeAppCenterDistribute.a */;
+			name = RNAppCenterDistribute;
+			productName = RNAppCenterDistribute;
+			productReference = 5419C2701D824AA700DDF3A1 /* libRNAppCenterDistribute.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5419C26B1D824AA700DDF3A1 /* Build configuration list for PBXProject "ReactNativeAppCenterDistribute" */;
+			buildConfigurationList = 5419C26B1D824AA700DDF3A1 /* Build configuration list for PBXProject "RNAppCenterDistribute" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5419C26F1D824AA700DDF3A1 /* ReactNativeAppCenterDistribute */,
+				5419C26F1D824AA700DDF3A1 /* RNAppCenterDistribute */,
 			);
 		};
 /* End PBXProject section */
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9EA0FE22317854001FCD9B /* ReactNativeAppCenterDistribute.m in Sources */,
+				0A9EA0FE22317854001FCD9B /* RNAppCenterDistribute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +244,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ReactNativeAppCenterDistribute;
+				PRODUCT_NAME = RNAppCenterDistribute;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -266,7 +266,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ReactNativeAppCenterDistribute;
+				PRODUCT_NAME = RNAppCenterDistribute;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -274,7 +274,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5419C26B1D824AA700DDF3A1 /* Build configuration list for PBXProject "ReactNativeAppCenterDistribute" */ = {
+		5419C26B1D824AA700DDF3A1 /* Build configuration list for PBXProject "RNAppCenterDistribute" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5419C2771D824AA700DDF3A1 /* Debug */,
@@ -283,7 +283,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5419C2791D824AA700DDF3A1 /* Build configuration list for PBXNativeTarget "ReactNativeAppCenterDistribute" */ = {
+		5419C2791D824AA700DDF3A1 /* Build configuration list for PBXNativeTarget "RNAppCenterDistribute" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5419C27A1D824AA700DDF3A1 /* Debug */,
