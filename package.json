@@ -29,15 +29,16 @@
 		"appcenter": "1.12.2"
 	},
 	"devDependencies": {
+		"@types/node": "11.10.5",
 		"typescript": "3.3.3333"
 	},
 
 	"rnpm": {
 		"android": {
-			"packageInstance": "new ReactNativeAppCenterDistributePackage(MainApplication.this))"
+			"packageInstance": "new RNAppCenterDistributePackage(MainApplication.this))"
 		},
 		"commands": {
-			"postlink": "node node_modules/react-native-appcenter-distribute/scripts/postlink"
+			"postlink": "node node_modules/react-native-appcenter-distribute/tools/postlink"
 		}
 	}
 }

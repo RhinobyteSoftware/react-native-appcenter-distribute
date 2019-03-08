@@ -5,6 +5,17 @@
 # Xcode
 #
 
+## Typescript Build Output
+index.js
+index.js.map
+index.d.ts
+src/*.js
+src/*.js.map
+src/*.d.ts
+tools/*.js
+tools/*.js.map
+tools/*.d.ts
+
 ## Build generated
 build/
 DerivedData
