@@ -33,5 +33,5 @@ dependencies {
 	api "com.microsoft.appcenter:appcenter-distribute:$appCenterSdkVersion";
 	api 'com.microsoft.appcenter.reactnative:appcenter-react-native:1.12.2';
 
-	testImplementation project(':AppCenterReactNativeShared');
+	//testImplementation project(':AppCenterReactNativeShared');
 }

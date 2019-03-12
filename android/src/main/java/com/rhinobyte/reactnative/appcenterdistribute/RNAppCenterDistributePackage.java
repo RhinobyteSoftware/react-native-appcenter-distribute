@@ -1,5 +1,7 @@
 package com.rhinobyte.reactnative.appcenterdistribute;
 
+import android.app.Application;
+
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
@@ -35,7 +37,7 @@ public class RNAppCenterDistributePackage implements ReactPackage {
 			distributeListener != null,
 			enableForDebuggableBuild,
 			triggerMode
-		);
+		));
 
 		this.appCenterDistributeModule =
 			new RNAppCenterDistributeModule(application, distributeListener, enableForDebuggableBuild, triggerMode);

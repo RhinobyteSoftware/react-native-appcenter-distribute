@@ -11,8 +11,9 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.microsoft.appcenter.AppCenter;
-import com.microsoft.appcenter.distribute.DistributeListener;
 import com.microsoft.appcenter.reactnative.shared.AppCenterReactNativeShared;
+import com.microsoft.appcenter.utils.async.AppCenterConsumer;
+
 
 @SuppressWarnings("WeakerAccess")
 public class RNAppCenterDistributeModule extends BaseJavaModule {

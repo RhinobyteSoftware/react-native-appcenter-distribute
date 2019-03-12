@@ -64,6 +64,8 @@ import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.Flags;
 import com.microsoft.appcenter.SessionContext;
 import com.microsoft.appcenter.channel.Channel;
+import com.microsoft.appcenter.distribute.DeepLinkActivity;
+import com.microsoft.appcenter.distribute.UpdateAction;
 import com.microsoft.appcenter.distribute.channel.DistributeInfoTracker;
 import com.microsoft.appcenter.distribute.ingestion.models.DistributionStartSessionLog;
 import com.microsoft.appcenter.distribute.ingestion.models.json.DistributionStartSessionLogFactory;
@@ -99,44 +101,44 @@ import java.util.Map;
 
 import static android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE;
 import static android.util.Log.VERBOSE;
-import static com.microsoft.appcenter.distribute.DistributeConstants.CHECK_PROGRESS_TIME_INTERVAL_IN_MILLIS;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DEFAULT_API_URL;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DEFAULT_INSTALL_URL;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DOWNLOAD_STATE_AVAILABLE;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DOWNLOAD_STATE_COMPLETED;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DOWNLOAD_STATE_ENQUEUED;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DOWNLOAD_STATE_INSTALLING;
-import static com.microsoft.appcenter.distribute.DistributeConstants.DOWNLOAD_STATE_NOTIFIED;
-import static com.microsoft.appcenter.distribute.DistributeConstants.GET_LATEST_PRIVATE_RELEASE_PATH_FORMAT;
-import static com.microsoft.appcenter.distribute.DistributeConstants.GET_LATEST_PUBLIC_RELEASE_PATH_FORMAT;
-import static com.microsoft.appcenter.distribute.DistributeConstants.HANDLER_TOKEN_CHECK_PROGRESS;
-import static com.microsoft.appcenter.distribute.DistributeConstants.HEADER_API_TOKEN;
-import static com.microsoft.appcenter.distribute.DistributeConstants.LOG_TAG;
-import static com.microsoft.appcenter.distribute.DistributeConstants.MEBIBYTE_IN_BYTES;
-import static com.microsoft.appcenter.distribute.DistributeConstants.NOTIFICATION_CHANNEL_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PARAMETER_DISTRIBUTION_GROUP_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PARAMETER_INSTALL_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PARAMETER_RELEASE_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PARAMETER_UPDATE_SETUP_FAILED;
-import static com.microsoft.appcenter.distribute.DistributeConstants.POSTPONE_TIME_THRESHOLD;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCES_NAME_MOBILE_CENTER;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DISTRIBUTION_GROUP_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_DISTRIBUTION_GROUP_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_RELEASE_HASH;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_RELEASE_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_STATE;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_TIME;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_POSTPONE_TIME;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_RELEASE_DETAILS;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_REQUEST_ID;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_TESTER_APP_UPDATE_SETUP_FAILED_MESSAGE_KEY;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_UPDATE_SETUP_FAILED_MESSAGE_KEY;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_UPDATE_SETUP_FAILED_PACKAGE_HASH_KEY;
-import static com.microsoft.appcenter.distribute.DistributeConstants.PREFERENCE_KEY_UPDATE_TOKEN;
-import static com.microsoft.appcenter.distribute.DistributeConstants.SERVICE_NAME;
-import static com.microsoft.appcenter.distribute.DistributeUtils.computeReleaseHash;
-import static com.microsoft.appcenter.distribute.DistributeUtils.getStoredDownloadState;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.CHECK_PROGRESS_TIME_INTERVAL_IN_MILLIS;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DEFAULT_API_URL;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DEFAULT_INSTALL_URL;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DOWNLOAD_STATE_AVAILABLE;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DOWNLOAD_STATE_COMPLETED;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DOWNLOAD_STATE_ENQUEUED;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DOWNLOAD_STATE_INSTALLING;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.DOWNLOAD_STATE_NOTIFIED;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.GET_LATEST_PRIVATE_RELEASE_PATH_FORMAT;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.GET_LATEST_PUBLIC_RELEASE_PATH_FORMAT;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.HANDLER_TOKEN_CHECK_PROGRESS;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.HEADER_API_TOKEN;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.LOG_TAG;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.MEBIBYTE_IN_BYTES;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.NOTIFICATION_CHANNEL_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PARAMETER_DISTRIBUTION_GROUP_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PARAMETER_INSTALL_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PARAMETER_RELEASE_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PARAMETER_UPDATE_SETUP_FAILED;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.POSTPONE_TIME_THRESHOLD;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCES_NAME_MOBILE_CENTER;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DISTRIBUTION_GROUP_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_DISTRIBUTION_GROUP_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_RELEASE_HASH;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOADED_RELEASE_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_STATE;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_DOWNLOAD_TIME;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_POSTPONE_TIME;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_RELEASE_DETAILS;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_REQUEST_ID;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_TESTER_APP_UPDATE_SETUP_FAILED_MESSAGE_KEY;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_UPDATE_SETUP_FAILED_MESSAGE_KEY;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_UPDATE_SETUP_FAILED_PACKAGE_HASH_KEY;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.PREFERENCE_KEY_UPDATE_TOKEN;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeConstants.SERVICE_NAME;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeUtils.computeReleaseHash;
+import static com.rhinobyte.reactnative.appcenterdistribute.DistributeUtils.getStoredDownloadState;
 import static com.microsoft.appcenter.http.DefaultHttpClient.METHOD_GET;
 import static com.microsoft.appcenter.http.HttpUtils.createHttpClient;
 
@@ -156,7 +158,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 	 * Shared instance.
 	 */
 	@SuppressLint("StaticFieldLeak")
-	private static Distribute sInstance;
+	private static CustomizedDistributeService sInstance;
 
 	/**
 	 * Log factories managed by this service.
@@ -361,7 +363,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 
 		mEnabledForDebuggableBuild = false;
 		mHasUpdateCheckBeenRequestedManually = false;
-		mTriggerMode = TiggerMode.Manual;
+		mTriggerMode = TriggerMode.Manual;
 	}
 
 	/**
@@ -413,7 +415,7 @@ public class CustomizedDistributeService extends AbstractAppCenterService {
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public static void setEnabledForDebuggableBuild(boolean enabled) {
-		return getInstance().setInstanceEnabledForDebuggableBuild(enabled);
+		getInstance().setInstanceEnabledForDebuggableBuild(enabled);
 	}
 
 	/**
