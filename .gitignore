@@ -12,9 +12,11 @@ index.d.ts
 src/*.js
 src/*.js.map
 src/*.d.ts
+src/*.d.ts.map
 tools/*.js
 tools/*.js.map
 tools/*.d.ts
+tools/*.d.ts.map
 
 ## Build generated
 build/

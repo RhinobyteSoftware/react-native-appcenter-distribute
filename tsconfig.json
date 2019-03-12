@@ -1,13 +1,13 @@
 {
 	"compilerOptions": {
-		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
 		"alwaysStrict": true,
-		"baseUrl": "src",
+		"baseUrl": "./",
 		"declaration": true,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-native",
+		"lib": ["es2015"],
 		"module": "es2015",
 		"moduleResolution": "classic",
 		"noFallthroughCasesInSwitch": true,
@@ -16,20 +16,25 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": false,
-		"paths": {},
+		"paths": {
+			"csstype": ["./node_modules/csstype/index.d.ts"]
+		},
 		"preserveConstEnums": true,
 		"pretty": false,
-		"rootDir": "src",
+		"rootDir": "./",
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"target": "es2015",
 		"typeRoots": [
 			"./node_modules"
 		],
-		"types": []
+		"types": [
+			"@types/react-native"
+		]
 	},
 	"include": [
 		"typings/augmentations/global-augmentation.d.ts",
+		"index.ts",
 		"src/**/*.ts",
 		"src/**/*.tsx"
 	],

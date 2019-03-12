@@ -1,9 +1,9 @@
 
 import rnpmlink from 'appcenter-link-scripts';
-import inquirer from 'inquirer';
 
 // Configure Android first.
-const getFormattedErrorMessage = (errorToFormat) => {
+// tslint:disable-next-line:no-any
+const getFormattedErrorMessage = (errorToFormat: any) => {
 	let errorMessage = '';
 
 	if(errorToFormat.stack) {
@@ -33,7 +33,7 @@ const configureAndroidAsync = async () => {
 
 		await rnpmlink.android.removeAndroidDuplicateLinks();
 	} catch(asyncError) {
-		console.error(`\nERROR - Unexpected error configuring react-native-appcenter-distribute in the android project files!`);
+		console.error('\nERROR - Unexpected error configuring react-native-appcenter-distribute in the android project files!');
 		console.error(getFormattedErrorMessage(asyncError));
 		console.error('\n');
 	}
@@ -66,7 +66,7 @@ const configureIOSAsync = async () => {
 		);
 
 	} catch(asyncError) {
-		console.error(`\nERROR - Unexpected error configuring react-native-appcenter-distribute in the ios project files!`);
+		console.error('\nERROR - Unexpected error configuring react-native-appcenter-distribute in the ios project files!');
 		console.error(getFormattedErrorMessage(asyncError));
 		console.error('\n');
 	}
@@ -79,11 +79,11 @@ const runPostlinkAsync = async () => {
 		await configureIOSAsync();
 
 	} catch(asyncError) {
-		console.error(`\nERROR - Unexpected error configuring react-native-appcenter-distribute!`);
+		console.error('\nERROR - Unexpected error configuring react-native-appcenter-distribute!');
 		console.error(getFormattedErrorMessage(asyncError));
 		console.error('\n');
 	}
-}
+};
 
 
 runPostlinkAsync()
@@ -91,7 +91,7 @@ runPostlinkAsync()
 		console.log('\n\nPostlink of react-native-appcenter-distribute has finished!\n');
 	})
 	.catch((asyncError) => {
-		console.error(`\nERROR - Unexpected error configuring react-native-appcenter-distribute!`);
+		console.error('\nERROR - Unexpected error configuring react-native-appcenter-distribute!');
 		console.error(asyncError);
 		console.error(' \n');
 		return Promise.resolve();
